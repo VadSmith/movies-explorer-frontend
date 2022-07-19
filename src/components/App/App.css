@@ -15,4 +15,13 @@
 
 .opacity:hover {
   opacity: .6;
+  cursor: pointer;
+}
+
+a {
+  transition: opacity 0.4s;
+}
+
+a:hover {
+  opacity: .6;
 }

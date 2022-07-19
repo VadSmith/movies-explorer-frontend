@@ -78,6 +78,26 @@
   padding: 0 12px;
 }
 
+.navigation__burger-button {
+  visibility: hidden;
+  position: absolute;
+  top: 21px;
+  right: 30px;
+  height: 44px;
+  width: 44px;
+  border: 0;
+  background: url(../../images/burger-button.svg) no-repeat center;
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__burger-button {
+    visibility: visible;
+  }
+}
+
 /*
 .navigation__profile-button-content {
   display: flex;
@@ -88,6 +108,20 @@
 320 - 54 26
 768 76 32
 main 76 32 */
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    visibility: hidden;
+  }
+
+  .navigation__movies-container {
+    display: none;
+  }
+
+  .navigation__profile-button {
+    /* display: none; */
+  }
+}
 
 @media screen and (max-width: 800px) {
 

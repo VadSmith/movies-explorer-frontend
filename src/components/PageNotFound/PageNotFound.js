@@ -1,17 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
-import React, { useState } from 'react';
-import '../App/App';
-import Main from '../Main/Main';
-import Register from '../Register/Register';
-import Login from '../Login/Login';
-import Movies from '../Movies/Movies';
-import SavedMovies from '../SavedMovies/SavedMovies';
-import Profile from '../Profile/Profile';
+import { useNavigate } from 'react-router-dom';
+import './PageNotFound.css';
 
 function PageNotFound() {
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1)
   return (
-    <section className="main__section">
-      PageNotFound
+    <section className="notfound">
+      <div className="notfound__container">
+        <h1 className="notfound-title">404</h1>
+        <p className="notfound-description">Страница не найдена</p>
+      </div>
+      <button className="notfound-backbutton opacity" onClick={goBack}>Назад</button>
     </section >
   );
 }

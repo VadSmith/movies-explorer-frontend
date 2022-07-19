@@ -625,7 +625,7 @@ function Movies(props) {
       />
       <SearchForm />
       <MoviesCardList
-        movies={movies}
+      // movies={movies}
       />
       <Footer />
     </>

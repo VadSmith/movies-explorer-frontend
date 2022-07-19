@@ -6,7 +6,6 @@ import('./SavedMovies.css');
 const savedMovies = [
   {
     "id": 5,
-    "isSaved": true,
     "nameRU": "Taqwacore: The Birth of Punk Islam",
     "nameEN": "Taqwacore: The Birth of Punk Islam",
     "director": " Омар Маджид",
@@ -379,7 +378,8 @@ function SavedMovies({ isLoggedIn }) {
       <SearchForm />
 
       <MoviesCardList
-        movies={savedMovies}
+        // movies={savedMovies}
+        deleteButton
       />
       <Footer />
     </>

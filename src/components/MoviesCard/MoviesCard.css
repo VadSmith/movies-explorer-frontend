@@ -2,8 +2,6 @@
   display: grid;
   background: #FFFFFF;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
-  width: 364px;
-  height: 270px;
 }
 
 .movies-card__header {
@@ -25,7 +23,6 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
-
   color: #000000;
 }
 
@@ -42,15 +39,8 @@
   color: #A0A0A0;
 }
 
-.movies-card__thumbnail {
-  width: 364px;
-  height: 203px;
-}
-
 .movies-card__bookmark {
-
   grid-area: bookmark;
-  background-color: rgba(244, 244, 244, 1);
   width: 30px;
   height: 30px;
   border: none;
@@ -60,22 +50,60 @@
   align-self: center;
 }
 
+.movies-card__thumbnail-wrapper {
+  overflow: hidden;
+}
+
+.movies-card__thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .movies-card__thumbnail-img {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+} */
+
+
 .movies-card__bookmark_delete {
   background: url(../../images/bookmark_delete.svg) no-repeat center;
 }
 
 .movies-card__bookmark_active {
-  background: url(../../images/bookmark_active.png) no-repeat center;
-  background-color: #3456F3;
+  background: url(../../images/bookmark_active.svg) no-repeat center;
 }
 
 .movies-card__bookmark_inactive {
   background: url(../../images/bookmark_inactive.svg) no-repeat center;
 }
 
-@media screen and (max-width: 800px) {
+
+
+@media screen and (max-width: 319px) {
+  .movies-card {
+    width: 90vw;
+    /* height: 236px; */
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .movies-card {
+    width: 300px;
+    height: 236px;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .movies-card {
     width: 339px;
-    height: 190px;
+    height: 258px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .movies-card {
+    width: 364px;
+    height: 271px;
   }
 }
