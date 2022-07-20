@@ -1,5 +1,4 @@
 .promo {
-  /* max-width: 1280px; */
   height: 524px;
   background-color: #DDDEE3;
   margin: 0 auto;
@@ -20,13 +19,11 @@
 }
 
 .promo__container {
-  /* background: url(../../images/promo-logo.png) no-repeat left 50% top 82px; */
-  background: url(../../images/promo-logo.png);
+  background: url(../../images/promo-logo.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 320px 320px;
   height: 320px;
-  /* background-c; */
   display: flex;
   flex-direction: column;
   justify-content: center;

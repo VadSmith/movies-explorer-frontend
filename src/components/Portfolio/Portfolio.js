@@ -1,5 +1,5 @@
 import './Portfolio.css';
-import Arrow from "../../images/link-arrow.png";
+import Arrow from "../../images/link-arrow.svg";
 function Portfolio() {
   return (
     <section className="main__section portfolio">
