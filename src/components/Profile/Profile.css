@@ -62,7 +62,7 @@
 
 .profile__input:focus {
   outline: none;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .profile__label:first-child {
