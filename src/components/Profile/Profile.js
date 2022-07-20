@@ -16,10 +16,7 @@ function Profile(props) {
             <input className="profile__input profile__input_type_name"
               type="text"
               id="profile__input-name"
-              minLength="2"
-              required
-              value="Виталий"
-
+              placeholder="Имя"
             >
             </input>
           </label>
@@ -29,8 +26,7 @@ function Profile(props) {
             <input className="profile__input profile__input_type_email"
               type="email"
               id="profile__input-email"
-              required
-              value="vitalidze@yandex.ru"
+              placeholder="E-mail"
             >
             </input>
           </label>

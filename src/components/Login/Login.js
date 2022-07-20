@@ -13,12 +13,12 @@ function Login() {
       <form className="login__form">
         <label className="login__label">
           E-mail
-          <input className="login__input login__input_type_email"></input>
+          <input className="login__input login__input_type_email" required placeholder="E-mail" type="email"></input>
           <span className="login__input-error"></span>
         </label>
         <label className="login__label">
           Пароль
-          <input className="login__input login__input_type_password" type="password"></input>
+          <input className="login__input login__input_type_password" required placeholder="Пароль" type="password"></input>
           <span className="login__input-error"></span>
         </label>
       </form>

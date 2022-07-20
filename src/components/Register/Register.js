@@ -15,7 +15,7 @@ function Register() {
           Имя
           <input className="register__input register__input_type_name"
             type="text"
-            minLength="2"
+            placeholder="Имя"
             required
           >
           </input>
@@ -25,6 +25,7 @@ function Register() {
           E-mail
           <input className="register__input register__input_type_email"
             type="email"
+            placeholder="E-mail"
             required
           >
           </input>
@@ -34,7 +35,7 @@ function Register() {
           Пароль
           <input className="register__input register__input_type_password"
             type="password"
-            minLength="2"
+            placeholder="Пароль"
             required
           >
           </input>
