@@ -46,7 +46,7 @@
 .login__input {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 13px;
   line-height: 16px;
   color: #000000;
@@ -60,8 +60,10 @@
 }
 
 .login__input:focus {
-  outline: 2px #F4F4F4 solid;
-  background-color: #fff;
+  /* outline: 2px #F4F4F4 solid; */
+  /* background-color: #fff; */
+  outline: none;
+  font-weight: 500;
 }
 
 .login__button {

@@ -18,7 +18,7 @@ function Login() {
         </label>
         <label className="login__label">
           Пароль
-          <input className="login__input login__input_type_password"></input>
+          <input className="login__input login__input_type_password" type="password"></input>
           <span className="login__input-error"></span>
         </label>
       </form>

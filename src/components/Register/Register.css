@@ -46,7 +46,7 @@
 .register__input {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 13px;
   line-height: 16px;
   color: #000000;
@@ -60,9 +60,8 @@
 }
 
 .register__input:focus {
-  /* outline: none; */
-  outline: 2px #F4F4F4 solid;
-  background-color: #fff;
+  outline: none;
+  font-weight: 500;
 }
 
 .register__button {
