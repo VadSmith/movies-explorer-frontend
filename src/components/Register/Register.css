@@ -14,7 +14,7 @@
 }
 
 .register__title {
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -34,7 +34,7 @@
 .register__label {
   display: flex;
   flex-direction: column;
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -44,7 +44,7 @@
 }
 
 .register__input {
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -71,7 +71,7 @@
   border: none;
   color: #fff;
   border-radius: 3px;
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -98,7 +98,7 @@
 }
 
 .register__login-container {
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -115,7 +115,7 @@
 }
 
 .register__input-error {
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -162,109 +162,3 @@
     margin-bottom: 16px;
   }
 }
-
-
-/* =============================== */
-/*
-.register {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 56px 30px 30px;
-}
-
-.register__logo {
-  width: 38px;
-  height: 38px;
-}
-
-.register__title {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: center;
-  color: #000000;
-  margin: 50px auto 80px;
-}
-
-.register__form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.register__label {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #A0A0A0;
-  padding: 0;
-}
-
-.register__input {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 16px;
-  color: #000000;
-  background: #F4F4F4;
-  border-radius: 8px;
-  border: none;
-  width: 260px;
-  height: 46px;
-  margin-top: 10px;
-}
-
-.register__button {
-  width: 260px;
-  height: 45px;
-  background: #3456F3;
-  border: none;
-  color: #fff;
-  border-radius: 3px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: center;
-  padding: 0;
-  margin-bottom: 14px;
-}
-
-.form__container {
-  display: flex;
-  flex-direction: column;
-}
-
-.register__links-container {
-  position: absolute;
-  bottom: 30px;
-
-}
-
-.register__login-container {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: center;
-  color: #A0A0A0;
-  margin: 0;
-
-}
-
-.register__login-link {
-  color: #3456F3;
-}
-
-*/
