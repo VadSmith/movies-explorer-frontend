@@ -13,7 +13,7 @@ function AboutMe() {
         </p>
         <div className="about-me__links">
           <a href="http://facebook.com" className="about-me__link">Facebook</a>
-          <a href="http://github.com" className="about-me__link">Github</a>
+          <a href="https://github.com/VadSmith" className="about-me__link">Github</a>
         </div>
         <img className="about-me__photo" src={Photo} alt="Фото разработчика" />
       </div>

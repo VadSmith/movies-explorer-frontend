@@ -60,7 +60,8 @@
 }
 
 .login__input:focus {
-  outline: none;
+  outline: 2px #F4F4F4 solid;
+  background-color: #fff;
 }
 
 .login__button {
@@ -78,6 +79,11 @@
   text-align: center;
   padding: 0;
   margin-bottom: 14px;
+}
+
+.login__button:hover {
+  opacity: .8;
+  cursor: pointer;
 }
 
 .form__container {
