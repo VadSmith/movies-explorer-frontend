@@ -23,7 +23,7 @@ function Login() {
         </label>
       </form>
       <div className="login__links-container">
-        <button className="login__button">Войти</button>
+        <button type="button" className="login__button">Войти</button>
         <p className="login__register-container">Ещё не зарегистрированы? <Link className="login__register-link" to="/signup">Регистрация</Link></p>
       </div>
     </section>

@@ -33,9 +33,9 @@ function Profile(props) {
           <span className="profile__input-error"></span>
         </form>
         <div className="profile__buttons-container">
-          <button className="profile__form-button opacity"
+          <button type="button" className="profile__form-button opacity"
             form="profile__form">Редактировать</button>
-          <button className="profile__signout-button opacity">Выйти из аккаунта</button>
+          <button type="button" className="profile__signout-button opacity">Выйти из аккаунта</button>
         </div>
       </section>
     </>

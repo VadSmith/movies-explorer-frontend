@@ -23,6 +23,7 @@ function Header({ mixinClass, isLoggedIn }) {
               to="/signin"
               className="">
               <button
+                type="button"
                 className="navigation__login-button ">
                 Войти
               </button>

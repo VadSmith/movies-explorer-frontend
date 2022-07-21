@@ -44,6 +44,11 @@
 .portfolio__link {
   text-decoration: none;
   color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
 }
 
 .portfolio__arrow {

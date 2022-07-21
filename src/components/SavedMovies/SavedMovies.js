@@ -375,12 +375,13 @@ function SavedMovies({ isLoggedIn }) {
         isLoggedIn={isLoggedIn}
         mixinClass="saved-movies__header"
       />
-      <SearchForm />
-
-      <MoviesCardList
-        // movies={savedMovies}
-        deleteButton
-      />
+      <main>
+        <SearchForm />
+        <MoviesCardList
+          // movies={savedMovies}
+          deleteButton
+        />
+      </main>
       <Footer />
     </>
   )

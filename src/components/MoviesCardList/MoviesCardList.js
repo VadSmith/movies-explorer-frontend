@@ -5,7 +5,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList({ movies, deleteButton }) {
   return (
-    <section className="main__section">
+    <section className="main__section movies__list">
       {/* <ul className="movies-card__list">
         {movies.map((movie) => {
           return (<MoviesCard
@@ -13,6 +13,8 @@ function MoviesCardList({ movies, deleteButton }) {
             movie={movie} />)
         })}
       </ul> */}
+      <div className="movies-card__line" />
+
       <ul className="movies-card__list">
         <MoviesCard
           nameRU="«Роллинг Стоунз» в изгнании"

@@ -10,7 +10,7 @@ function PageNotFound() {
         <h1 className="notfound-title">404</h1>
         <p className="notfound-description">Страница не найдена</p>
       </div>
-      <button className="notfound-backbutton opacity" onClick={goBack}>Назад</button>
+      <button className="notfound-backbutton opacity" type="button" onClick={goBack}>Назад</button>
     </section >
   );
 }

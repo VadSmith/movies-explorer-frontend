@@ -18,7 +18,7 @@ function MoviesCard({ nameRU, duration, thumbnail, mixinClass }) {
                 : 'movies-card__bookmark movies-card__bookmark_inactive'
           }>
         </button> */}
-        <button className={`movies-card__bookmark opacity ${mixinClass}`} />
+        <button type="button" className={`movies-card__bookmark opacity ${mixinClass}`} />
       </div>
       {/* <div className="movies-card__thumbnail"> */}
       {/* <div> */}

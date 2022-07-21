@@ -623,10 +623,13 @@ function Movies(props) {
         isLoggedIn={props.isLoggedIn}
         mixinClass="movies__header"
       />
-      <SearchForm />
-      <MoviesCardList
-      // movies={movies}
-      />
+      <main>
+        <SearchForm />
+        <MoviesCardList
+        // movies={movies}
+        // mixinClass="movies__list"
+        />
+      </main>
       <Footer />
     </>
 

@@ -23,7 +23,7 @@ function Navigation(props) {
           >Сохранённые фильмы
           </NavLink>
         </div>
-        <button className="navigation__profile-button">
+        <button className="navigation__profile-button" type="button">
           <NavLink
             to='/profile'
             className="navigation__profile-link "

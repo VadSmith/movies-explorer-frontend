@@ -16,12 +16,14 @@ function Main(props) {
         isLoggedIn={props.isLoggedIn}
         mixinClass="main__header"
       />
-      <Promo />
-      <NavTab />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
+      <main>
+        <Promo />
+        <NavTab />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+      </main>
       <Footer />
     </>
 

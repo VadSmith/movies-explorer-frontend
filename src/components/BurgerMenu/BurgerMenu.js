@@ -7,7 +7,7 @@ function BurgerMenu({ isOpen, closeBurger }) {
     <div className={`burger-menu__popup ${isOpen && 'burger-menu__popup_opened'}`}>
       {/* <div class="burger-menu__overlay"></div> */}
       <div className="burger-menu__container">
-        <button className="burger-menu__close-button" onClick={closeBurger} />
+        <button type="button" className="burger-menu__close-button" onClick={closeBurger} />
         <nav className="burger-menu__navigation">
           <div className="burger-menu__links">
             <NavLink
@@ -27,7 +27,7 @@ function BurgerMenu({ isOpen, closeBurger }) {
             </NavLink>
           </div>
         </nav>
-        <button className="navigation__profile-button">
+        <button type="button" className="navigation__profile-button">
           <NavLink
             to='/profile'
             className="navigation__profile-link "

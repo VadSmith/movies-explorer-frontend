@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #FAFAFA;
+  padding-bottom: 0;
 }
 
 @media screen and (max-width: 800px) {
