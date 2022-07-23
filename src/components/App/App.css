@@ -1,3 +1,27 @@
-.app {
-  /* background-color: black; */
+/* * {
+  outline: 1px solid red;
+} */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.opacity {
+  transition: opacity 0.4s;
+}
+
+.opacity:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+a {
+  transition: opacity 0.4s;
+}
+
+a:hover {
+  opacity: .6;
 }

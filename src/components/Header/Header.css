@@ -1,0 +1,32 @@
+.header {
+  /* max-width: 1280px; */
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 70px;
+  margin: 0 auto;
+  background-color: #DDDEE3;
+  gap: 25px;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    padding: 21px 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 24px 14px;
+  }
+}
+
+/*
+768-30
+320-14
+main -70 */
+
+
+/* кнопка
+320 - 54 26
+768 76 32
+main 76 32 */
