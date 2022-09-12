@@ -117,13 +117,17 @@
 
 .profile__input-error {
   /* font-family: 'Inter'; */
+  visibility: hidden;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
   color: #EE3465;
   margin-top: 10px;
-  display: none;
+}
+
+.profile__input-error_active {
+  visibility: visible;
 }
 
 .profile__form-button {
@@ -132,8 +136,14 @@
   font-weight: 500;
 }
 
+
 .profile__form-button:hover {
   cursor: pointer;
+}
+
+.profile__form-button_disabled {
+  cursor: not-allowed !important;
+  color: grey;
 }
 
 .profile__buttons-container {

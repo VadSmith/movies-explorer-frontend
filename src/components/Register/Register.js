@@ -2,48 +2,100 @@ import React from "react";
 import './Register.css';
 import Logo from '../../images/logo.svg';
 import { Link } from "react-router-dom";
+import { useFormWithValidation } from "../../hooks/useFormValidation";
 
-function Register() {
+function Register({ handleRegister, infoMessage, setInfoMessage }) {
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormWithValidation({});
+
+  const { name, email, password } = values;
+
+  const handleFocus = (e) => {
+    e.preventDefault();
+
+    e.target.select();
+    setInfoMessage('');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleRegister(values);
+    resetForm(values);
+    setInfoMessage('');
+  };
+
   return (
     <section className="register">
       <Link to="/">
         <img className="register__logo" src={Logo} alt="Logo" />
       </Link>
       <h1 className="register__title">Добро пожаловать!</h1>
-      <form className="register__form">
+      <form className="register__form"
+        id="register"
+        onSubmit={handleSubmit}>
         <label className="register__label">
           Имя
           <input className="register__input register__input_type_name"
             type="text"
-            placeholder="Имя"
+            name="name"
+            minLength="2"
             required
+            value={name || ""}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            autoComplete="name"
           >
           </input>
-          <span className="register__input-error"></span>
+          <span
+            className={`register__input-error ${!isValid && "register__input-error_active"}`}>
+            {errors.name}
+          </span>
         </label>
         <label className="register__label">
           E-mail
           <input className="register__input register__input_type_email"
             type="email"
-            placeholder="E-mail"
+            name="email"
+            value={email || ""}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            autoComplete="email"
             required
           >
           </input>
-          <span className="register__input-error"></span>
+          <span
+            className={`register__input-error ${!isValid && "register__input-error_active"}`}>
+            {errors.email}
+          </span>
         </label>
         <label className="register__label">
           Пароль
           <input className="register__input register__input_type_password"
             type="password"
-            placeholder="Пароль"
+            name="password"
+            minLength="2"
+            maxLength="8"
+            value={password || ""}
+            autoComplete="current-password"
+            onChange={handleChange}
+            onFocus={handleFocus}
             required
           >
           </input>
-          <span className="register__input-error"></span>
+          <span
+            className={`register__input-error ${!isValid && "register__input-error_active"}`}>
+            {errors.password}
+          </span>
         </label>
+        <span className="register__info-message">{infoMessage}</span>
       </form>
       <div className="register__links-container">
-        <button type="button" className="register__button">Зарегистрироваться</button>
+        <button
+          form="register"
+          type="submit"
+          className={`register__button ${!isValid && 'register__button_disabled'}`}
+          disabled={!isValid}
+        >Зарегистрироваться</button>
         <p className="register__login-container">Уже зарегистрированы? <Link className="register__login-link" to="/signin">Войти</Link></p>
       </div>
     </section>
