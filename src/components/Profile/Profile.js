@@ -4,7 +4,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import { useFormWithValidation } from '../../hooks/useFormValidation';
 import './Profile.css';
 
-function Profile({ handleLogout, isLoggedIn, handleUpdateUserProfile }) {
+function Profile({ handleLogout, isLoggedIn, infoMessage, handleUpdateUserProfile }) {
   const currentUser = useContext(CurrentUserContext);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const { values, handleChange, errors, isValid, resetForm } =
@@ -91,6 +91,8 @@ function Profile({ handleLogout, isLoggedIn, handleUpdateUserProfile }) {
             {errors.email}
           </span>
         </form>
+        <span className="profile__info-message">{infoMessage}</span>
+
         <div className="profile__buttons-container">
           <button
             type="submit"

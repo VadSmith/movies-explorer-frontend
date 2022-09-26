@@ -20,6 +20,10 @@
   text-align: center;
 }
 
+.movies-list__more-button_hidden {
+  visibility: hidden;
+}
+
 .movies-card__list {
   margin: 0 auto 80px;
   display: grid;
@@ -73,6 +77,12 @@
   width: calc(100% - 20px);
   padding-bottom: 45px;
   margin: 0 auto;
+}
+
+.movies-list__notfound-message {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 320px) {

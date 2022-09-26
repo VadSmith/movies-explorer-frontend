@@ -66,7 +66,6 @@ function Login({ handleLogin, infoMessage, setInfoMessage }) {
             name="password"
             placeholder="Пароль"
             minLength="2"
-            maxLength="8"
             autoComplete="current-password"
             required
             type="password">

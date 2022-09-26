@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 
 function Register({ handleRegister, infoMessage, setInfoMessage }) {
+  // const emailPattern = "/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i";
+  const emailPattern = "/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/";
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation({});
 
@@ -20,6 +22,7 @@ function Register({ handleRegister, infoMessage, setInfoMessage }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleRegister(values);
+    // handleRegister(name, email, password);
     resetForm(values);
     setInfoMessage('');
   };
@@ -57,6 +60,7 @@ function Register({ handleRegister, infoMessage, setInfoMessage }) {
             type="email"
             name="email"
             value={email || ""}
+            // pattern={emailPattern}
             onChange={handleChange}
             onFocus={handleFocus}
             autoComplete="email"
@@ -74,7 +78,6 @@ function Register({ handleRegister, infoMessage, setInfoMessage }) {
             type="password"
             name="password"
             minLength="2"
-            maxLength="8"
             value={password || ""}
             autoComplete="current-password"
             onChange={handleChange}
@@ -98,7 +101,7 @@ function Register({ handleRegister, infoMessage, setInfoMessage }) {
         >Зарегистрироваться</button>
         <p className="register__login-container">Уже зарегистрированы? <Link className="register__login-link" to="/signin">Войти</Link></p>
       </div>
-    </section>
+    </section >
   )
 }
 

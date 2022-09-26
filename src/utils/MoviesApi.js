@@ -1,6 +1,6 @@
 // файл будет содержать запросы к сервису beatfilm - movies.
 
-export const FILM_API_URL = 'https://api.nomoreparties.co';
+export const MOVIES_API_URL = 'https://api.nomoreparties.co';
 
 export const _checkResponse = (response) => {
   // если статус 200 или 204, вернем объект ответа
@@ -18,10 +18,9 @@ export const _checkResponse = (response) => {
   })
 }
 
-
 // получение всех фильмов
 export const getAllMovies = () => {
-  return fetch(`${FILM_API_URL}/beatfilm-movies`, {
+  return fetch(`${MOVIES_API_URL}/beatfilm-movies`, {
   })
     .then(_checkResponse)
 }
