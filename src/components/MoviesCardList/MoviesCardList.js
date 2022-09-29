@@ -8,16 +8,14 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 function MoviesCardList({
   movies,
   savedMovies,
+  isShortChecked,
   handleSaveMovie,
   handleDeleteMovie,
   isLoading, setIsLoading
 }) {
-  // debugger
   const location = useLocation();
-
   // массив видимых фильмов
   const [moviesToShow, setMoviesToShow] = useState([]);
-
   // количество всех фильмов и на добавление
   const [moviesToShowParams, setMoviesToShowParams] = useState({ total: 12, more: 3 });
   const screenWidth = window.innerWidth;
@@ -25,7 +23,6 @@ function MoviesCardList({
   // изменяем отображаемый массив фильмов в зависимости от ширины экрана
   useEffect(() => {
     if (location.pathname === '/movies') {
-
       if (movies.length) {
         // берем фильмов в количестве moviesToShowParams.total
         const filtered = movies.filter((item, i) => i < moviesToShowParams.total);
@@ -33,7 +30,7 @@ function MoviesCardList({
         setMoviesToShow(filtered);
       }
     }
-  }, [movies, moviesToShowParams.total]);
+  }, [isShortChecked, movies, moviesToShowParams.total]);
 
 
   useEffect(() => {
@@ -54,7 +51,7 @@ function MoviesCardList({
         // debugger
       }
     }
-  }, [screenWidth, moviesToShow, location.pathname]);
+  }, [movies, screenWidth, moviesToShow, location.pathname]);
 
 
   // добавление карточек при клике по кнопке "Еще"
@@ -74,7 +71,7 @@ function MoviesCardList({
       <div className="movies-card__line" />
       <ul className="movies-card__list">
         {
-          location.pathname === '/movies' && moviesToShow.length
+          (location.pathname === '/movies' && moviesToShow.length > 0)
             ? (
               moviesToShow.map((movie, i) => {
                 return (
@@ -89,8 +86,10 @@ function MoviesCardList({
                   />)
               }))
             : (
-              location.pathname === "/movies" &&
+              (location.pathname === "/movies" && localStorage.getItem('filteredMovies') === true) &&
+              moviesToShow.length === 0 &&
               <h2 className='movies-list__notfound-message'>Ничего не найдено</h2>
+
             )
         }
 
@@ -105,7 +104,6 @@ function MoviesCardList({
                   handleDeleteMovie={handleDeleteMovie}
                   isLoading={isLoading}
                   setIsLoading={setIsLoading}
-
                 />)
             })
           )

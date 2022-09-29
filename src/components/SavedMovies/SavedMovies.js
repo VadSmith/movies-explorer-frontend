@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -8,53 +8,54 @@ import('./SavedMovies.css');
 
 function SavedMovies({
   isLoggedIn,
-  allMovies,
-  isLoading, setIsLoading,
-  handleSearchFormSubmit,
-  keyword, setKeyword,
-  // movies,
   savedMovies,
-  isShortChecked, setIsShortChecked,
-  checkBoxChange,
+  setIsShortChecked,
   handleDeleteMovie,
   filterShortMovies
 }) {
+  const [savedMoviesKeyword, setSavedMoviesKeyword] = useState('');
+  console.log('savedMovies в начале', savedMovies);
+  const [isShortCheckedSaved, setIsShortCheckedSaved] = useState(false);
+  const [savedMoviesToShow, setSavedMoviesToShow] = useState(savedMovies);
 
-  // Мемоизированный результат поиска по сохраненным фильмам
-  const filteredSavedMovies = useMemo(
-    () =>
-      savedMovies.filter((movie) =>
-        movie.nameRU.toLowerCase().includes(keyword.toLowerCase())
-      ),
-    [keyword, savedMovies]
-  );
+  const checkBoxChangeSave = () => {
+    setIsShortCheckedSaved(!isShortCheckedSaved);
+  }
+
+  useEffect(() => {
+    if (!savedMoviesKeyword) setSavedMoviesToShow(savedMovies);
+  }, [savedMoviesKeyword, savedMovies])
+
+  const getSavedMoviesToShow = ((savedMoviesKeyword) => {
+    setSavedMoviesToShow((savedMovies.filter(
+      (movie) => movie.nameRU.toLowerCase().includes(savedMoviesKeyword.toLowerCase())
+    )
+    ));
+  })
 
   return (
     <>
       <Header
         isLoggedIn={isLoggedIn}
         mixinClass="saved-movies__header"
-
       />
       <main>
         <SearchForm
-          handleSearchFormSubmit={handleSearchFormSubmit}
-          // handleSearchFormSubmitSaved={handleSearchFormSubmitSaved}
-          isLoggedIn={isLoggedIn}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          keyword={keyword}
-          setKeyword={setKeyword}
-          allMovies={allMovies}
-          filterShortMovies={filterShortMovies}
-          checkBoxChange={checkBoxChange}
-          isShortChecked={isShortChecked}
+          handleSearchFormSubmit={setSavedMoviesKeyword}
+          getSavedMoviesToShow={getSavedMoviesToShow}
+          savedMovies={savedMoviesToShow}
+          keyword={savedMoviesKeyword}
+          setKeyword={setSavedMoviesKeyword}
+          checkBoxChange={checkBoxChangeSave}
+          isShortChecked={isShortCheckedSaved}
           setIsShortChecked={setIsShortChecked}
-
         />
         <MoviesCardList
-          // savedMovies={savedMovies}
-          savedMovies={isShortChecked ? filterShortMovies(filteredSavedMovies) : filteredSavedMovies}
+          savedMovies={
+            isShortCheckedSaved
+              ? filterShortMovies(savedMoviesToShow)
+              : savedMoviesToShow
+          }
           handleDeleteMovie={handleDeleteMovie}
         />
       </main>

@@ -16,7 +16,7 @@ import { Route, Navigate } from "react-router-dom";
 // }
 const ProtectedRoute = ({
   isLoggedIn,
-  redirectPath = '/signin',
+  redirectPath = '/',
   children,
 }) => {
   if (!isLoggedIn) {

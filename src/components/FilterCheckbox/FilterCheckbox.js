@@ -1,16 +1,7 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React from 'react';
 import "./FilterCheckbox.css";
 
-function FilterCheckbox({ isShortChecked, setIsShortChecked, checkBoxChange }) {
-  // debugger
-  // const checkBox = document.querySelector(".filter-checkbox__input");
-  // checkBox.defaultChecked = isShortChecked;
-  // const [isShort, setIsShort] = useState(isShortChecked);
-  // useEffect(() => {
-  //   setIsShortChecked = localStorage.getItem('isShortChecked')
-  // }, [])
-
-  console.log('isShortChecked', isShortChecked)
+function FilterCheckbox({ isShortChecked, checkBoxChange }) {
   return (
     <div className="filter-checkbox__container">
       <p className="filter-checkbox__text">Короткометражки</p>
@@ -19,7 +10,6 @@ function FilterCheckbox({ isShortChecked, setIsShortChecked, checkBoxChange }) {
         type="checkbox"
         checked={isShortChecked}
         onChange={checkBoxChange}
-
       />
     </div>
   );

@@ -4,17 +4,16 @@ import Logo from '../../images/logo.svg';
 import { Link } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 
-function Register({ handleRegister, infoMessage, setInfoMessage }) {
+function Register({ isLoggedIn, handleRegister, infoMessage, setInfoMessage }) {
   // const emailPattern = "/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i";
-  const emailPattern = "/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/";
+  // const emailPattern = "/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/";
+  const emailPattern = "^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation({});
-
   const { name, email, password } = values;
 
   const handleFocus = (e) => {
     e.preventDefault();
-
     e.target.select();
     setInfoMessage('');
   };
@@ -22,7 +21,6 @@ function Register({ handleRegister, infoMessage, setInfoMessage }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleRegister(values);
-    // handleRegister(name, email, password);
     resetForm(values);
     setInfoMessage('');
   };
@@ -60,7 +58,7 @@ function Register({ handleRegister, infoMessage, setInfoMessage }) {
             type="email"
             name="email"
             value={email || ""}
-            // pattern={emailPattern}
+            pattern={emailPattern}
             onChange={handleChange}
             onFocus={handleFocus}
             autoComplete="email"

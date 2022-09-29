@@ -4,7 +4,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import { useFormWithValidation } from '../../hooks/useFormValidation';
 import './Profile.css';
 
-function Profile({ handleLogout, isLoggedIn, infoMessage, handleUpdateUserProfile }) {
+function Profile({ handleLogout, isLoggedIn, infoMessage, setInfoMessage, handleUpdateUserProfile }) {
   const currentUser = useContext(CurrentUserContext);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const { values, handleChange, errors, isValid, resetForm } =
@@ -22,6 +22,7 @@ function Profile({ handleLogout, isLoggedIn, infoMessage, handleUpdateUserProfil
   };
 
   const handleFocus = (e) => {
+    setInfoMessage('');
     e.target.select();
   };
 

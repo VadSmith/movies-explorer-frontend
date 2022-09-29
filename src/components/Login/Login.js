@@ -1,15 +1,21 @@
 import { React, useEffect } from "react";
 import './Login.css';
 import Logo from '../../images/logo.svg';
-import { Link } from "react-router-dom";
+import { Link, Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 
 
-function Login({ handleLogin, infoMessage, setInfoMessage }) {
+function Login({ isLoggedIn, handleLogin, infoMessage, setInfoMessage }) {
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation({});
+  const navigate = useNavigate();
 
   const { email, password } = values;
+
+  useEffect(() => {
+    console.log('Login page: isLoggedIn', isLoggedIn);
+    if (isLoggedIn) navigate('/');
+  }, [])
 
   const handleFocus = (e) => {
     e.preventDefault();

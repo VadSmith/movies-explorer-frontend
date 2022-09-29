@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './Movies.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
-// import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-// import * as moviesApi from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
-import filterShortMovies from '../../utils/filterShorts'
 
 function Movies({
   isLoggedIn,
-  allMovies, setAllMovies,
+  allMovies,
   isLoading, setIsLoading,
   handleSearchFormSubmit,
   keyword, setKeyword,
@@ -41,7 +38,6 @@ function Movies({
           keyword={keyword}
           setKeyword={setKeyword}
           allMovies={allMovies}
-
         />
 
         {/* Показываем прелоадер, если есть ожидание загрузки */}
@@ -51,6 +47,7 @@ function Movies({
           mixinClass="movies__list"
           movies={isShortChecked ? filterShortMovies(movies) : movies}
           savedMovies={savedMovies}
+          isShortChecked={isShortChecked}
           isLoading={isLoading}
           handleSaveMovie={handleSaveMovie}
           handleDeleteMovie={handleDeleteMovie}

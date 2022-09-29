@@ -1,29 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import { useFormWithValidation } from "../../hooks/useFormValidation";
+// import { useFormWithValidation } from "../../hooks/useFormValidation";
 import('./SearchForm.css');
 import('../Main/Main');
 
 function SearchForm({
   isLoggedIn,
-  allMovies, setAllMovies,
-  isLoading, setIsLoading,
   handleSearchFormSubmit,
-  filterShortMovies,
   keyword, setKeyword,
   isShortChecked,
-  setIsShortChecked,
-  checkBoxChange
+  checkBoxChange,
+  getSavedMoviesToShow
 }
 ) {
-  // TODO: исправить валидацию и вернуть поиск
-  // console.log('isShortChecked SearchForm:', isShortChecked);
-
-  const [isValid, setIsValid] = useState(keyword.length > 0);
+  const [isValid, setIsValid] = useState(keyword ?? false);
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
+  const location = useLocation();
   const handleChange = (e) => {
-    setIsValid(e.target.validity.valid);
     setKeyword(e.target.value);
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setKeyword();
+    }
+  }, [isLoggedIn])
+
+  useEffect(() => {
+    setIsValid(keyword ?? false);
+  }, [keyword])
 
   const handleFocus = (e) => {
     e.preventDefault();
@@ -32,12 +38,30 @@ function SearchForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearchFormSubmit(keyword);
+    if (isValid) {
+      setIsErrorVisible(false);
+      handleSearchFormSubmit(keyword);
+    } else {
+      setIsErrorVisible(true);
+    }
+  }
+
+  const handleSubmitSaved = (e) => {
+    e.preventDefault();
+    if (keyword) {
+      setIsErrorVisible(false);
+      getSavedMoviesToShow(keyword);
+    } else {
+      setIsErrorVisible(true);
+    }
   };
 
   return (
     <section className="main__section search-form">
-      <form className="search-form__form" onSubmit={handleSubmit}>
+      <form className="search-form__form"
+        onSubmit={location.pathname === '/saved-movies' ? handleSubmitSaved : handleSubmit}
+        noValidate
+      >
         <div className="search-form__container">
           <input
             name="keyword"
@@ -52,7 +76,7 @@ function SearchForm({
           <button className="search-form__button opacity" type="submit" />
         </div>
         <span
-          className={`search-form__input-error ${!isValid && "search-form__input-error_active"}`}>
+          className={`search-form__input-error ${!isValid && isErrorVisible && "search-form__input-error_active"}`}>
           Нужно ввести ключевое слово
         </span>
 
@@ -60,9 +84,8 @@ function SearchForm({
       <FilterCheckbox
         isShortChecked={isShortChecked}
         checkBoxChange={checkBoxChange}
-
       />
-    </section>
+    </section >
   )
 }
 export default SearchForm;

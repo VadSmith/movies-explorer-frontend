@@ -1,12 +1,5 @@
-// [ ]: УБРАТЬ ЗАГРУЗКУ ФИЛЬМОВ
-// [ ]: найти, где формируется "Validation failed"
-// [ ]: убрать стандартное предупреждение в формах
-// [ ]: в Register включить кастомные ошибки
-// [ ]: кнопки на формах сделать ___дизэйбл___
-
-
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import React, { useState, useEffect, useCallback } from 'react';
+import { Route, Routes, useNavigate, Navigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Main from '../Main/Main';
 import Register from '../Register/Register';
@@ -107,7 +100,6 @@ function App() {
         navigate(location.pathname);
       })
       .catch((err) => {
-        console.log('tokenCheck error, isLoggedIn:', isLoggedIn);
         localStorage.clear();
         // handleLogout();
       });
@@ -139,7 +131,6 @@ function App() {
 
   // Обработка Logout
   function handleLogout() {
-    console.log('enter handlelogout',);
     mainApi.logout().then(() => {
       setCurrentUser({});
       setIsLoggedIn(false);
@@ -147,7 +138,7 @@ function App() {
       setSavedMovies([]);
       setAllMovies([]);
       setKeyword('');
-      navigate('/signin');
+      navigate('/');
       localStorage.clear();
     }).catch(error => console.log);
   }
@@ -163,6 +154,8 @@ function App() {
       .setUserInfo(user)
       .then((userInfo) => {
         setCurrentUser(userInfo);
+        setInfoMessage('Профиль успешно обновлен');
+        // console.log(userInfo);
       })
       .catch((err) => {
         setInfoMessage(err.message);
@@ -173,6 +166,8 @@ function App() {
   // Обработка формы поиска на странице Movies
   function handleSearchFormSubmit(keyword) {
     setIsLoading(true);
+
+    setFilteredMovies([]);
     const foundMovies = searchMovies(allMovies, keyword);
     localStorage.setItem("filteredMovies", JSON.stringify(foundMovies));
     setFilteredMovies(foundMovies);
@@ -306,21 +301,29 @@ function App() {
           {/*     Регистрация     */}
           <Route path="/signup"
             element={
-              <Register
-                handleRegister={handleRegister}
-                infoMessage={infoMessage}
-                setInfoMessage={setInfoMessage}
-              />} />
+              !isLoggedIn ?
+                (<Register
+                  isLoggedIn={isLoggedIn}
+                  handleRegister={handleRegister}
+                  infoMessage={infoMessage}
+                  setInfoMessage={setInfoMessage}
+                  tokenCheck={tokenCheck}
+                />)
+                : (<Navigate replace to='/' />)
+            } />
 
 
           {/*     Логин     */}
           <Route path="/signin"
             element={
-              <Login
-                handleLogin={handleLogin}
-                infoMessage={infoMessage}
-                setInfoMessage={setInfoMessage}
-              />} />
+              !isLoggedIn ? (
+                <Login
+                  handleLogin={handleLogin}
+                  infoMessage={infoMessage}
+                  setInfoMessage={setInfoMessage}
+                />
+              ) : (<Navigate replace to='/' />)
+            } />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div >
