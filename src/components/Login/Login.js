@@ -50,6 +50,7 @@ function Login({ isLoggedIn, handleLogin, infoMessage, setInfoMessage }) {
             value={email || ""}
             onChange={handleChange}
             onFocus={handleFocus}
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
             placeholder="E-mail"
             name="email"
             autoComplete="email"
