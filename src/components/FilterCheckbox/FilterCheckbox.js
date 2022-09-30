@@ -1,13 +1,15 @@
-import React from "react";
+import React from 'react';
 import "./FilterCheckbox.css";
 
-function FilterCheckbox() {
+function FilterCheckbox({ isShortChecked, checkBoxChange }) {
   return (
     <div className="filter-checkbox__container">
       <p className="filter-checkbox__text">Короткометражки</p>
       <input
         className="filter-checkbox__input opacity"
         type="checkbox"
+        checked={isShortChecked}
+        onChange={checkBoxChange}
       />
     </div>
   );
