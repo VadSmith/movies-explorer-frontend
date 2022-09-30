@@ -92,8 +92,8 @@ function Profile({ handleLogout, isLoggedIn, infoMessage, setInfoMessage, handle
             className={`profile__input-error ${!isValid && "profile__input-error_active"}`}>
             {errors.email}
           </span>
+          <span className="profile__info-message">{infoMessage}</span>
         </form>
-        <span className="profile__info-message">{infoMessage}</span>
 
         <div className="profile__buttons-container">
           <button
