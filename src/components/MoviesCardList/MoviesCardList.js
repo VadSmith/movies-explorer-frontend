@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
+import { screens, qtyParams } from '../../utils/constants';
 
 import "./MoviesCardList.css";
 import "../Main/Main";
@@ -17,7 +18,8 @@ function MoviesCardList({
   // массив видимых фильмов
   const [moviesToShow, setMoviesToShow] = useState([]);
   // количество всех фильмов и на добавление
-  const [moviesToShowParams, setMoviesToShowParams] = useState({ total: 12, more: 3 });
+  const [moviesToShowParams, setMoviesToShowParams] = useState(screens.desktop);
+  // const [moviesToShowParams, setMoviesToShowParams] = useState({ total: 12, more: 3 });
   const screenWidth = window.innerWidth;
 
   // изменяем отображаемый массив фильмов в зависимости от ширины экрана
@@ -34,21 +36,13 @@ function MoviesCardList({
 
 
   useEffect(() => {
-    // debugger
     if (location.pathname === '/movies') {
-      // если ширина > 1280
-      if (screenWidth >= 1280) {
-        // параметры показа - 12 - 3
-        setMoviesToShowParams({ total: 12, more: 3 });
-        // если ширина <= 1280 и ширина >= 768
-      } else if (screenWidth < 1280 && screenWidth >= 768) {
-        // параметры показа - 8 - 2
-        setMoviesToShowParams({ total: 8, more: 2 });
+      if (screenWidth >= screens.desktop) {
+        setMoviesToShowParams(qtyParams.desktop);
+      } else if (screenWidth < screens.desktop && screenWidth >= screens.tablet) {
+        setMoviesToShowParams(qtyParams.tablet);
       } else {
-        // если ширина < 768
-        // параметры показа - 5 - 2
-        setMoviesToShowParams({ total: 5, more: 2 });
-        // debugger
+        setMoviesToShowParams(qtyParams.oldMobile);
       }
     }
   }, [movies, screenWidth, moviesToShow, location.pathname]);
